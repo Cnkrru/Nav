@@ -1,0 +1,6 @@
+* [工具网站](/pages/tools.md)
+* [学习网站](/pages/learning.md)
+* [娱乐休闲](/pages/entertainment.md)
+* [开发工具](/pages/dev-tools.md)
+* [游戏网站](/pages/game.md)
+* [软件推荐](/pages/software.md)

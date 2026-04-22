@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-xxxx" crossorigin="anonymous"></script>
+  <style>
+    /* 卡片样式 */
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      margin: 20px 0;
+    }
+    
+    .card {
+      border: 1px solid #eaecef;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .card:hover {
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+      transform: translateY(-2px);
+    }
+    
+    .card a {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    .card-head {
+      background-color: #f8f9fa;
+      padding: 12px 16px;
+      border-bottom: 1px solid #eaecef;
+    }
+    
+    .card-head h3 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 600;
+      color: #3F51B5;
+    }
+    
+    .card-body {
+      padding: 12px 16px;
+      font-size: 14px;
+      color: #666;
+      line-height: 1.5;
+    }
+    
+    /* 分割线样式 */
+    hr {
+      border: 1px solid #2e67bc;
+      height: 5px;
+      background: linear-gradient(to right, transparent, #2e67bc, transparent);
+      margin: 32px 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    window.$docsify = {
+      name: '导航',                           //侧边栏名称
+      nameLink: true,                     // 开启侧边栏标题链接
+      homepage: 'index.md',           // 设置默认首页为index页面
+      themeColor: '#3F51B5',
+      
+      // 插件配置
+      auto2top: true,                     // 自动返回顶部
+
+      loadSidebar: true,                  // 加载侧边栏（需要准备对应md文件）
+      
+      autoHeader: true,                   // 自动添加标题
+      
+      PluginError: true,                  // 插件错误提示
+
+      loadNavbar: false,                     // 关闭加载导航栏
+      mergeNavbar: false,                     // 关闭移动端合并导航栏
+
+
+      // logo: '/icon.svg',             // 移除导航栏logo
+
+      logoLink: false,                     // 关闭logo链接
+
+      nativeEmoji: false,                     // 开启原生emoji
+
+      notFoundPage: true,                     // 开启404页面（需要准备对应md文件）
+
+      relativePath: true,                     // 开启相对路径
+
+      topMargin: 90, // default: 0             // 顶部间距（单位：像素）  
+      
+
+
+      ga: 'UA-XXXXX-Y',                     // 开启谷歌分析
+      
+      pagination: {
+        previousText: '上一章',
+        nextText: '下一章',
+        crossChapter: true,
+        crossChapterText: true,
+      },
+
+      footer: {
+        copy: '<span>&copy; 2024 导航站点</span>',
+        auth: '',
+        pre: '<hr/>',
+        style: 'text-align: center;',
+        class: 'className'
+      },
+
+
+
+
+
+    }
+  </script>
+
+  <!-- Docsify v4 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+
+  <!-- 谷歌分析 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/ga.min.js"></script>
+  <!-- 分页插件 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <!-- 页脚插件 -->
+  <script src="//unpkg.com/docsify-footer-enh/dist/docsify-footer-enh.min.js"></script>
+  <!-- 侧边栏折叠插件 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+  <!-- AdSense广告单元 -->
+  <div style="text-align: center; margin: 20px 0;">
+    <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-xxxx" data-ad-slot="1234567890"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+</body>
+</html>
