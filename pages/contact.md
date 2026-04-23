@@ -29,4 +29,4 @@
 ## 其他联系方式
 
 - GitHub: [Cnkrru](https://github.com/Cnkrru)
-- 邮箱: your-email@example.com
+- 邮箱: 3253884026@qq.com
