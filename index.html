@@ -2,15 +2,54 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <title>导航站点</title>
+  <title>导航站点 - 实用网站导航</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="实用导航站点，包含工具、学习、娱乐等多个分类">
+  <meta name="description" content="实用导航站点，包含工具网站、学习网站、娱乐休闲、开发工具、游戏网站、软件推荐等多个分类，方便快速访问常用网站">
+  <meta name="keywords" content="导航,实用工具,学习资源,娱乐休闲,开发工具,游戏网站,软件推荐">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <meta name="author" content="Cnkrru">
+  <meta name="robots" content="index, follow">
   <meta http-equiv="Content-Encoding" content="gzip">
   <meta http-equiv="Cache-Control" content="max-age=31536000, public">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta name="referrer-policy" content="strict-origin-when-cross-origin">
   <link rel="stylesheet" href="//cdn.staticfile.org/docsify/4.12.2/themes/vue.css">
 
   <style>
+    /* 基础样式 */
+    :root {
+      --primary-color: #3F51B5;
+      --secondary-color: #2e67bc;
+      --bg-color: #ffffff;
+      --text-color: #333333;
+      --card-bg: #ffffff;
+      --card-border: #eaecef;
+      --card-head-bg: #f8f9fa;
+      --card-text: #666666;
+      --hr-color: #2e67bc;
+    }
+    
+    /* 深色模式 */
+    .dark-mode {
+      --primary-color: #64b5f6;
+      --secondary-color: #42a5f5;
+      --bg-color: #1a1a1a;
+      --text-color: #e0e0e0;
+      --card-bg: #2d2d2d;
+      --card-border: #404040;
+      --card-head-bg: #3a3a3a;
+      --card-text: #b0b0b0;
+      --hr-color: #42a5f5;
+    }
+    
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    
     /* 卡片样式 */
     .card-container {
       display: grid;
@@ -20,12 +59,13 @@
     }
     
     .card {
-      border: 1px solid #eaecef;
+      border: 1px solid var(--card-border);
       border-radius: 8px;
       overflow: hidden;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       transition: all 0.3s ease;
       cursor: pointer;
+      background-color: var(--card-bg);
     }
     
     .card:hover {
@@ -40,35 +80,76 @@
     }
     
     .card-head {
-      background-color: #f8f9fa;
+      background-color: var(--card-head-bg);
       padding: 12px 16px;
-      border-bottom: 1px solid #eaecef;
+      border-bottom: 1px solid var(--card-border);
     }
     
     .card-head h3 {
       margin: 0;
       font-size: 16px;
       font-weight: 600;
-      color: #3F51B5;
+      color: var(--primary-color);
     }
     
     .card-body {
       padding: 12px 16px;
       font-size: 14px;
-      color: #666;
+      color: var(--card-text);
       line-height: 1.5;
     }
     
     /* 分割线样式 */
     hr {
-      border: 1px solid #2e67bc;
+      border: 1px solid var(--hr-color);
       height: 5px;
-      background: linear-gradient(to right, transparent, #2e67bc, transparent);
+      background: linear-gradient(to right, transparent, var(--hr-color), transparent);
       margin: 32px 0;
+    }
+    
+    /* 主题切换按钮 */
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 9999;
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .theme-toggle:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+      .card-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+      
+      .theme-toggle {
+        top: 10px;
+        right: 10px;
+        width: 36px;
+        height: 36px;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- 主题切换按钮 -->
+  <div class="theme-toggle" id="themeToggle">🌙</div>
   <div id="app"></div>
   <script>
     window.$docsify = {
@@ -126,6 +207,24 @@
 
 
     }
+  </script>
+
+  <!-- 主题切换逻辑 -->
+  <script>
+    // 检查本地存储中的主题设置
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      document.body.classList.add('dark-mode');
+      document.getElementById('themeToggle').textContent = '☀️';
+    }
+    
+    // 主题切换按钮点击事件
+    document.getElementById('themeToggle').addEventListener('click', function() {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      this.textContent = isDark ? '☀️' : '🌙';
+    });
   </script>
 
   <!-- Docsify v4 -->
