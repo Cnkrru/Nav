@@ -4,4 +4,4 @@
 * [开发工具](/pages/dev-tools.md)
 * [游戏网站](/pages/game.md)
 * [软件推荐](/pages/software.md)
-* [联系我们](pages/contact.md)
+* [联系我们](/pages/contact.md)
